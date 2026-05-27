@@ -13,7 +13,7 @@
     .header p { margin: 0; font-size: 14px; opacity: 0.9; }
     .form-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
     .section-title { font-size: 16px; color: #0A0025; margin: 0 0 1.5rem 0; padding-bottom: 0.75rem; border-bottom: 2px solid #E0E0E0; font-weight: 600; }
-    .fields-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+    .fields-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
     @media (max-width: 1200px) { .fields-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) { .fields-grid { grid-template-columns: 1fr; } }
     .field { display: flex; flex-direction: column; }
@@ -57,7 +57,7 @@
   <div id="alertContainer"></div>
 
   <form id="contractForm" class="form-section">
-    <h2 class="section-title">👤 Dados do Cliente e Anuente</h2>
+    <h2 class="section-title">👤 Dados do Cliente</h2>
     <div class="fields-grid">
       <div class="field"><label><span>Nome Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('nome_cliente', 'Nome Cliente')">✎</button><span class="desc-text" id="desc-nome_cliente"></span></label><input type="text" name="nome_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Nacionalidade Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('nacionalidade_cliente', 'Nacionalidade Cliente')">✎</button><span class="desc-text" id="desc-nacionalidade_cliente"></span></label><input type="text" name="nacionalidade_cliente" placeholder="Digite aqui..."></div>
@@ -68,6 +68,9 @@
       <div class="field"><label><span>Endereço Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('endereco_cliente', 'Endereço Cliente')">✎</button><span class="desc-text" id="desc-endereco_cliente"></span></label><input type="text" name="endereco_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Email Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('email_cliente', 'Email Cliente')">✎</button><span class="desc-text" id="desc-email_cliente"></span></label><input type="text" name="email_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Telefone Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('telefone_cliente', 'Telefone Cliente')">✎</button><span class="desc-text" id="desc-telefone_cliente"></span></label><input type="text" name="telefone_cliente" placeholder="Digite aqui..."></div>
+    </div>
+    <h2 class="section-title">👥 Dados do Anuente</h2>
+    <div class="fields-grid">
       <div class="field"><label><span>Nome Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('nome_anuente', 'Nome Anuente')">✎</button><span class="desc-text" id="desc-nome_anuente"></span></label><input type="text" name="nome_anuente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Nacionalidade Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('nacionalidade_anuente', 'Nacionalidade Anuente')">✎</button><span class="desc-text" id="desc-nacionalidade_anuente"></span></label><input type="text" name="nacionalidade_anuente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Estado Civil Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('estado_civil_anuente', 'Estado Civil Anuente')">✎</button><span class="desc-text" id="desc-estado_civil_anuente"></span></label><input type="text" name="estado_civil_anuente" placeholder="Digite aqui..."></div>
@@ -77,6 +80,9 @@
       <div class="field"><label><span>Endereço Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('endereco_anuente', 'Endereço Anuente')">✎</button><span class="desc-text" id="desc-endereco_anuente"></span></label><input type="text" name="endereco_anuente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Email Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('email_anuente', 'Email Anuente')">✎</button><span class="desc-text" id="desc-email_anuente"></span></label><input type="text" name="email_anuente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Telefone Anuente</span><button type="button" class="edit-btn" onclick="abrirModal('telefone_anuente', 'Telefone Anuente')">✎</button><span class="desc-text" id="desc-telefone_anuente"></span></label><input type="text" name="telefone_anuente" placeholder="Digite aqui..."></div>
+    </div>
+    <h2 class="section-title">📑 Dados do Precatório</h2>
+    <div class="fields-grid">
       <div class="field"><label><span>Data Operação</span><button type="button" class="edit-btn" onclick="abrirModal('data_operacao', 'Data Operação')">✎</button><span class="desc-text" id="desc-data_operacao"></span></label><input type="text" name="data_operacao" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Número Precatório</span><button type="button" class="edit-btn" onclick="abrirModal('n_precatorio', 'Número Precatório')">✎</button><span class="desc-text" id="desc-n_precatorio"></span></label><input type="text" name="n_precatorio" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Ano Orçamento</span><button type="button" class="edit-btn" onclick="abrirModal('ano_orcamento', 'Ano Orçamento')">✎</button><span class="desc-text" id="desc-ano_orcamento"></span></label><input type="text" name="ano_orcamento" placeholder="Digite aqui..."></div>
@@ -92,20 +98,26 @@
       <div class="field"><label><span>RRA</span><button type="button" class="edit-btn" onclick="abrirModal('RRA', 'RRA')">✎</button><span class="desc-text" id="desc-RRA"></span></label><input type="text" name="RRA" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>MM/AAAA Cálculo Atualizado</span><button type="button" class="edit-btn" onclick="abrirModal('mmaaaa_calculo_atualizado', 'MM/AAAA Cálculo Atualizado')">✎</button><span class="desc-text" id="desc-mmaaaa_calculo_atualizado"></span></label><input type="text" name="mmaaaa_calculo_atualizado" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Valor Líquido Atualizado Estimado</span><button type="button" class="edit-btn" onclick="abrirModal('valor_liquido_atualizado_estimado', 'Valor Líquido Atualizado Estimado')">✎</button><span class="desc-text" id="desc-valor_liquido_atualizado_estimado"></span></label><input type="text" name="valor_liquido_atualizado_estimado" placeholder="Digite aqui..."></div>
-      <div class="field"><label><span>Número CCB</span><button type="button" class="edit-btn" onclick="abrirModal('numero_ccb', 'Número CCB')">✎</button><span class="desc-text" id="desc-numero_ccb"></span></label><input type="text" name="numero_ccb" placeholder="Digite aqui..."></div>
-      <div class="field"><label><span>Valor Crédito Bruto e Por Extenso</span><button type="button" class="edit-btn" onclick="abrirModal('valor_credito_bruto_e_por_extenso', 'Valor Crédito Bruto e Por Extenso')">✎</button><span class="desc-text" id="desc-valor_credito_bruto_e_por_extenso"></span></label><input type="text" name="valor_credito_bruto_e_por_extenso" placeholder="Digite aqui..."></div>
-      <div class="field"><label><span>Valor Líquido Crédito e Extenso</span><button type="button" class="edit-btn" onclick="abrirModal('valor_liquido_credito_e_extenso', 'Valor Líquido Crédito e Extenso')">✎</button><span class="desc-text" id="desc-valor_liquido_credito_e_extenso"></span></label><input type="text" name="valor_liquido_credito_e_extenso" placeholder="Digite aqui..."></div>
+      <div class="field"><label><span>Percentual do Autor</span><button type="button" class="edit-btn" onclick="abrirModal('Percentual_do_Autor', 'Percentual do Autor')">✎</button><span class="desc-text" id="desc-Percentual_do_Autor"></span></label><input type="text" name="Percentual_do_Autor" placeholder="Digite aqui..."></div>
+    </div>
+    <h2 class="section-title">🏦 Dados Bancários</h2>
+    <div class="fields-grid">
       <div class="field"><label><span>Banco Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('banco_cliente', 'Banco Cliente')">✎</button><span class="desc-text" id="desc-banco_cliente"></span></label><input type="text" name="banco_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Agência Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('agencia_cliente', 'Agência Cliente')">✎</button><span class="desc-text" id="desc-agencia_cliente"></span></label><input type="text" name="agencia_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Conta Corrente Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('conta_corrente_cliente', 'Conta Corrente Cliente')">✎</button><span class="desc-text" id="desc-conta_corrente_cliente"></span></label><input type="text" name="conta_corrente_cliente" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>PIX Cliente</span><button type="button" class="edit-btn" onclick="abrirModal('pix_cliente', 'PIX Cliente')">✎</button><span class="desc-text" id="desc-pix_cliente"></span></label><input type="text" name="pix_cliente" placeholder="Digite aqui..."></div>
-      <div class="field"><label><span>Data Emissão</span><button type="button" class="edit-btn" onclick="abrirModal('data_emissao', 'Data Emissão')">✎</button><span class="desc-text" id="desc-data_emissao"></span></label><input type="text" name="data_emissao" placeholder="Digite aqui..."></div>
+    </div>
+    <h2 class="section-title">💰 Dados da CCB</h2>
+    <div class="fields-grid">
+      <div class="field"><label><span>Número CCB</span><button type="button" class="edit-btn" onclick="abrirModal('numero_ccb', 'Número CCB')">✎</button><span class="desc-text" id="desc-numero_ccb"></span></label><input type="text" name="numero_ccb" placeholder="Digite aqui..."></div>
+      <div class="field"><label><span>Valor Crédito Bruto e Por Extenso</span><button type="button" class="edit-btn" onclick="abrirModal('valor_credito_bruto_e_por_extenso', 'Valor Crédito Bruto e Por Extenso')">✎</button><span class="desc-text" id="desc-valor_credito_bruto_e_por_extenso"></span></label><input type="text" name="valor_credito_bruto_e_por_extenso" placeholder="Digite aqui..."></div>
+      <div class="field"><label><span>Valor Líquido Crédito e Extenso</span><button type="button" class="edit-btn" onclick="abrirModal('valor_liquido_credito_e_extenso', 'Valor Líquido Crédito e Extenso')">✎</button><span class="desc-text" id="desc-valor_liquido_credito_e_extenso"></span></label><input type="text" name="valor_liquido_credito_e_extenso" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Taxa AA</span><button type="button" class="edit-btn" onclick="abrirModal('Taxa_AA', 'Taxa AA')">✎</button><span class="desc-text" id="desc-Taxa_AA"></span></label><input type="text" name="Taxa_AA" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>CET AA</span><button type="button" class="edit-btn" onclick="abrirModal('CET_AA', 'CET AA')">✎</button><span class="desc-text" id="desc-CET_AA"></span></label><input type="text" name="CET_AA" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>IOF Valor</span><button type="button" class="edit-btn" onclick="abrirModal('IOF_Valor', 'IOF Valor')">✎</button><span class="desc-text" id="desc-IOF_Valor"></span></label><input type="text" name="IOF_Valor" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Custo de Emissão Seguro</span><button type="button" class="edit-btn" onclick="abrirModal('Custo_de_Emissao_Seguro', 'Custo de Emissão Seguro')">✎</button><span class="desc-text" id="desc-Custo_de_Emissao_Seguro"></span></label><input type="text" name="Custo_de_Emissao_Seguro" placeholder="Digite aqui..."></div>
+      <div class="field"><label><span>Data Emissão</span><button type="button" class="edit-btn" onclick="abrirModal('data_emissao', 'Data Emissão')">✎</button><span class="desc-text" id="desc-data_emissao"></span></label><input type="text" name="data_emissao" placeholder="Digite aqui..."></div>
       <div class="field"><label><span>Data de Vencimento</span><button type="button" class="edit-btn" onclick="abrirModal('Data_de_Vencimento', 'Data de Vencimento')">✎</button><span class="desc-text" id="desc-Data_de_Vencimento"></span></label><input type="text" name="Data_de_Vencimento" placeholder="Digite aqui..."></div>
-      <div class="field"><label><span>Percentual do Autor</span><button type="button" class="edit-btn" onclick="abrirModal('Percentual_do_Autor', 'Percentual do Autor')">✎</button><span class="desc-text" id="desc-Percentual_do_Autor"></span></label><input type="text" name="Percentual_do_Autor" placeholder="Digite aqui..."></div>
     </div>
   </form>
 
