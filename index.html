@@ -251,6 +251,19 @@ function copiarLink() {
   mostrarAlerta('✓ Link copiado para a área de transferência!', 'success');
 }
 
+// Função para criar nome de arquivo customizado
+function gerarNomeArquivo(nomeCliente, numeroCcb, tipoContrato) {
+  const nomeFormatado = nomeCliente
+    .trim()
+    .toUpperCase()
+    .replace(/\s+/g, '_')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  
+  const ccb = numeroCcb ? numeroCcb.trim() : 'documento';
+  return `${nomeFormatado}_CCB_${ccb}_${tipoContrato}.docx`;
+}
+
 window.addEventListener('load', () => {
   carregarDescricoes();
   carregarDadosURL();
@@ -314,12 +327,17 @@ generateBtn.addEventListener('click', async () => {
   alertContainer.innerHTML = '';
 
   try {
+    const nomeCliente = data.nome_cliente || 'Cliente';
+    const numeroCcb = data.numero_ccb || '';
+    
     // Gerar Aditivo
-    await substituirPlaceholdersEmDocx(ADITIVO_B64, data, `Aditivo_CCB_${data.numero_ccb || 'documento'}.docx`);
+    const nomeAditivo = gerarNomeArquivo(nomeCliente, numeroCcb, 'Aditivo');
+    await substituirPlaceholdersEmDocx(ADITIVO_B64, data, nomeAditivo);
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     // Gerar Cessão
-    await substituirPlaceholdersEmDocx(CESSAO_B64, data, `Cessao_Fiduciaria_${data.numero_ccb || 'documento'}.docx`);
+    const nomeCessao = gerarNomeArquivo(nomeCliente, numeroCcb, 'Cessao');
+    await substituirPlaceholdersEmDocx(CESSAO_B64, data, nomeCessao);
 
     mostrarAlerta('✓ 2 Contratos gerados e baixados com sucesso!', 'success');
     
